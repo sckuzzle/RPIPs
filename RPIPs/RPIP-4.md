@@ -68,6 +68,17 @@ Total vote power for each of the poll choices indicated in each `results.vote` e
 
 The `rplTotalPower` array is searched for the maximum value. The index of this maximum value corresponds to the winning proposal. If the winning choice corresponds to "Abstain", however, then the proposal corresponding to the index of the second highest value is declared as the winner instead.
 
+#### Support for non-standard voting
+
+When practical, the "RPL Voting" and "Outcome" sections above SHOULD be preferred. However, in specific cases a non-standard voting scheme MAY be used.
+
+In order to use an alternative voting scheme, there MUST be a standard vote approving the use of the non-standard voting scheme:
+- This vote SHALL clearly define the specific vote or class of votes that will use this non-standard voting scheme
+- This vote SHALL clearly define how voting power will be calculated for this non-standard voting scheme
+- This vote SHALL clearly define how outcomes will be determined for this non-standard voting scheme
+
+The vote to approve a non-standard voting scheme MAY be a standalone vote, or MAY be part of a larger vote. 
+
 #### Vetoing
 Given that the snapshot voting system is not comfortably secure (see Security Considerations below), there are two safeguard vetoes in place.
 
