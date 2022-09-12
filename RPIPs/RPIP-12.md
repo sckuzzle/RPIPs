@@ -58,13 +58,12 @@ rETH. More NOs will be earning rewards, and some of those rewards will be split 
   - The total capacity available in the minipool queue
 
 ### Scale assignments with deposit size
-- The number of scaling assignments SHALL be the minimum of:
-  - 90
-  - The number of minipools that can be assigned using the deposit
-- The number of socialized assignments SHALL be 2
-- The total number of assingments from a deposit SHALL be the minimum of:
-  - Scaling assignments + socialized assignments
-  - The total queue length
+- There SHALL be a maximum number of scaling assignments (eg, deposit.assign.maximum = 90)
+- There SHALL be a maximum number of socialized assignments (eg, deposit.assign.socializedmaximum = 2)
+- The total number of assignments shall be `min(deposit.assign.socializedmaximum + min(scaling_ct, deposit.assign.maximum), total_eth_ct, queue_ct)`, where
+  - `scaling_ct` is the number of minipools next in the queue(s), whose capacity can be fully filled from the deposited ETH
+  - `total_eth_ct` is the number of minipools next in queue(s), whose capacity can be fully filled from ETH the sum of deposited ETH and ETH in the deposit pool
+  - `queue_ct` is the number of minipools in the queue(s)
 
 ### SaaS
 Please see [RPIP-13](RPIP-13.md). Note that a vote on RPIP-12 (this RPIP) includes RPIP-13, since that
@@ -86,6 +85,7 @@ minting and take a small cut to incentivize their support.
 
 ### Miscellaneous
 - The Full deposit option SHALL be removed
+- The Empty deposit option SHALL be removed
 - Existing queued Half and Full deposit minipools SHALL be assigned before assigning any minipools
   that are created after the Atlas smart contract is in effect
 - More gas-efficient minipool deployment
