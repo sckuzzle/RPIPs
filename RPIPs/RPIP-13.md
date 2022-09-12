@@ -14,12 +14,16 @@ created: 2023-09-01
 
 The SaaS system is an addon to Rocket Pool to support the creation of Staking-as-a-Service products on top of the protocol. The SaaS system will
 introduce the new concept of a "supernode" which is a special type of node operator that is controlled via a smart contract. Supernodes will
-allow 4 entities to come together to fulfil the requirements of running a set of Rocket Pool minipools. Those are: 
+allow 4 entities to come together to fulfill the requirements of running a set of Rocket Pool minipools. Those are: 
 
 - Supernode operator who is the controlling entity for the SaaS business
 - RPL capital providers who provide the RPL collateral requirement
 - ETH capital providers who provide the 16 ETH per minipool requirement
 - Node operators who take care of the actual running of a validator
+
+Rocket Pool will maintain the latest version of the Supernode Contract Delegate, which will be
+upgradable by the oDAO. The individual SaaS operators elect whether to upgrade to the latest version
+of the Supernode Contract Delegate or remain at their current version. 
 
 ## Motivation
 
