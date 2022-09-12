@@ -79,10 +79,16 @@ reducing gas and improving UX with the following changes:
 - Total effective RPL stake SHALL be removed from oracle DAO submissions
 - All total effective RPL stake calculations and checks SHALL be removed from the smart contracts
 
-### Minor cleanup
+### Commission Contract
+Now that rETH no longer has a time lock, RP is able to provide partners with a way to get a
+commission when they refer a mint to RP. For example, this would allow Ledger to integrate rETH
+minting and take a small cut to incentivize their support.
+
+### Miscellaneous
 - The Full deposit option SHALL be removed
 - Existing queued Half and Full deposit minipools SHALL be assigned before assigning any minipools
   that are created after the Atlas smart contract is in effect
+- More gas-efficient minipool deployment
 
 ## Implementation
 
@@ -109,7 +115,13 @@ is one of the several features specified.
 - Remove `calculateTotalEffectiveRPLStake` and `getTotalEffectiveRPLStake` in `rocketNodeStaking`
 - Update smartnode software to no longer calculate and submit the value for `_effectiveRplStake`
 
-### Minor cleanup
+### Commission Contract
+The team has a high level design in hand for this, which had been blocked by the rETH time lock.
+Details to follow.
+
+### Miscellaneous
+- More gas-efficient minipool deployment; proof of concept:
+  <https://github.com/rocket-pool/rocketpool/commit/7eba62c23777e1736a7f7cc9908b54909bc3286a>
 
 ## Security Considerations
 
