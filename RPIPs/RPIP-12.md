@@ -58,9 +58,9 @@ rETH. More NOs will be earning rewards, and some of those rewards will be split 
   - The total capacity available in the minipool queue
 
 ### Scale assignments with deposit size
-- There SHALL be a maximum number of scaling assignments (eg, deposit.assign.maximum = 90)
 - There SHALL be a maximum number of socialized assignments (eg, deposit.assign.socializedmaximum = 2)
-- The total number of assignments shall be `min(deposit.assign.socializedmaximum + min(scaling_ct, deposit.assign.maximum), total_eth_ct, queue_ct)`, where
+- There SHALL be a maximum number of assignments (eg, deposit.assign.maximum = 90)
+- The total number of assignments shall be `min(deposit.assign.socializedmaximum + scaling_ct, total_eth_ct, queue_ct, deposit.assign.maximum)`, where
   - `scaling_ct` is the number of minipools next in the queue(s), whose capacity can be fully filled from the deposited ETH
   - `total_eth_ct` is the number of minipools next in queue(s), whose capacity can be fully filled from ETH the sum of deposited ETH and ETH in the deposit pool
   - `queue_ct` is the number of minipools in the queue(s)
